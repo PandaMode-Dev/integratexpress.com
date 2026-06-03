@@ -57,7 +57,8 @@
   // ----- Active link highlighting -----
   var path = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
   if (path === "") path = "index.html";
-  var servicePaths = ["services.html", "infrastructure-integration.html", "erp-consulting.html", "adp-integration.html", "paychex-integration.html"];
+  var servicePaths = ["services.html", "infrastructure-integration.html", "erp-consulting.html"];
+  var payrollPaths = ["adp-integration.html", "paychex-integration.html"];
   document.querySelectorAll(".nav__links a, .nav__sub a").forEach(function (a) {
     var href = (a.getAttribute("href") || "").toLowerCase();
     if (!href || href.indexOf("http") === 0) return;
@@ -66,8 +67,12 @@
     }
   });
   if (servicePaths.indexOf(path) >= 0) {
-    var svcBtn = document.querySelector("[data-nav-dropdown-toggle]");
+    var svcBtn = document.querySelector('[data-nav-dropdown="services"]');
     if (svcBtn) svcBtn.classList.add("is-active");
+  }
+  if (payrollPaths.indexOf(path) >= 0) {
+    var payrollBtn = document.querySelector('[data-nav-dropdown="payroll"]');
+    if (payrollBtn) payrollBtn.classList.add("is-active");
   }
 
   // ----- Year in footer -----
@@ -124,14 +129,6 @@
     var successMsg =
       form.getAttribute("data-form-success-msg") ||
       "Thank you — your message was sent. We'll reply within one business day.";
-
-    var payrollParam = (new URLSearchParams(window.location.search).get("payroll") || "").toLowerCase();
-    var payrollSelect = form.querySelector('[name="payrollPartner"]');
-    if (payrollSelect && payrollParam) {
-      var payrollMap = { adp: "ADP", paychex: "Paychex" };
-      var payrollValue = payrollMap[payrollParam];
-      if (payrollValue) payrollSelect.value = payrollValue;
-    }
 
     form.querySelectorAll(".form__check input[type=checkbox]").forEach(function (cb) {
       var wrap = cb.closest(".form__check");

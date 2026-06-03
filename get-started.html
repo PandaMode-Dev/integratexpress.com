@@ -27,7 +27,7 @@
         </button>
                         <ul class="nav__links">
           <li class="nav__item nav__item--dropdown">
-            <button type="button" class="nav__dropdown-btn" id="nav-services-btn" data-nav-dropdown-toggle aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
+            <button type="button" class="nav__dropdown-btn" id="nav-services-btn" data-nav-dropdown="services" data-nav-dropdown-toggle aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
               Services <span class="nav__dropdown-chevron" aria-hidden="true"></span>
             </button>
             <ul class="nav__sub" id="nav-services-menu" role="menu" aria-labelledby="nav-services-btn">
@@ -36,8 +36,15 @@
               <li role="none"><a href="services.html" role="menuitem">All services</a></li>
             </ul>
           </li>
-          <li><a href="adp-integration.html">ADP</a></li>
-          <li><a href="paychex-integration.html">Paychex</a></li>
+          <li class="nav__item nav__item--dropdown">
+            <button type="button" class="nav__dropdown-btn" id="nav-payroll-btn" data-nav-dropdown="payroll" data-nav-dropdown-toggle aria-expanded="false" aria-haspopup="true" aria-controls="nav-payroll-menu">
+              Payroll <span class="nav__dropdown-chevron" aria-hidden="true"></span>
+            </button>
+            <ul class="nav__sub" id="nav-payroll-menu" role="menu" aria-labelledby="nav-payroll-btn">
+              <li role="none"><a href="adp-integration.html" role="menuitem">ADP integration</a></li>
+              <li role="none"><a href="paychex-integration.html" role="menuitem">Paychex referral</a></li>
+            </ul>
+          </li>
           <li><a href="team.html">Team</a></li>
           <li><a href="accreditation.html">Accreditation</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
@@ -104,19 +111,6 @@
               </div>
             </div>
 
-            <div class="form__field form__field--highlight">
-              <p class="form__section-label">Payroll &amp; HR</p>
-              <label for="payrollPartner">Which payroll partner applies? <span class="form__optional">(optional)</span></label>
-              <select id="payrollPartner" name="payrollPartner" class="form__select-payroll">
-                <option value="">Not applicable — infrastructure, ERP, or other only</option>
-                <option value="ADP">ADP — payroll &amp; accounting integration</option>
-                <option value="Paychex">Paychex — referral &amp; payroll signup</option>
-                <option value="Comparing ADP and Paychex">Comparing ADP and Paychex</option>
-                <option value="Other payroll or HR platform">Other payroll or HR platform</option>
-              </select>
-              <p class="form__help"><strong>ADP</strong> and <strong>Paychex</strong> run payroll &amp; HR (paychecks, taxes, benefits). Pick one only if that&rsquo;s what you need.</p>
-            </div>
-
             <div class="form__field">
               <label>Services of interest</label>
               <div class="form__checks">
@@ -125,8 +119,6 @@
                 <label class="form__check"><input type="checkbox" name="services" value="Change Management" /> Change Management</label>
                 <label class="form__check"><input type="checkbox" name="services" value="Cloud Migration" /> Cloud Migration</label>
                 <label class="form__check"><input type="checkbox" name="services" value="Accounting / Financial Visibility" /> Accounting</label>
-                <label class="form__check"><input type="checkbox" name="services" value="ADP payroll integration" /> ADP payroll</label>
-                <label class="form__check"><input type="checkbox" name="services" value="Paychex payroll referral" /> Paychex payroll</label>
                 <label class="form__check"><input type="checkbox" name="services" value="Other" /> Other</label>
               </div>
             </div>
