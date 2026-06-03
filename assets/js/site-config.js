@@ -11,7 +11,8 @@
 window.INTEGRATEXPRESS_SQUARESPACE_FORM_URL = "";
 
 /**
- * Formspree — notifications go to the inbox you verified in Formspree (not necessarily Services@).
+ * Default Formspree endpoint — all forms can override with data-form-endpoint.
+ * Each form sends a "category" field for sorting in Formspree emails.
  */
 window.INTEGRATEXPRESS_FORM_ENDPOINT = "https://formspree.io/f/meewjzoz";
 

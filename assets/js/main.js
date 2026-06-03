@@ -95,7 +95,7 @@
     });
   }, 800);
 
-  // ----- Get Started form → Formspree (no mailto) -----
+  // ----- IntegrateXpress forms → Formspree (category per form) -----
   function getFormEndpoint(formEl) {
     var fromAttr = (formEl.getAttribute("data-form-endpoint") || "").trim();
     if (fromAttr) return fromAttr;
@@ -109,28 +109,30 @@
     return "";
   }
 
-  var form = document.querySelector("[data-getstarted-form]");
-  if (form) {
+  function getSubmitterName(data) {
+    var full = (data.get("fullName") || "").toString().trim();
+    if (full) return full;
+    var first = (data.get("firstName") || "").toString().trim();
+    var last = (data.get("lastName") || "").toString().trim();
+    return (first + " " + last).trim();
+  }
+
+  function initIxForm(form) {
     var errorBox = form.querySelector("[data-form-error]");
     var successBox = form.querySelector("[data-form-success]");
+    var category = (form.getAttribute("data-form-category") || "Website inquiry").trim();
+    var successMsg =
+      form.getAttribute("data-form-success-msg") ||
+      "Thank you — your message was sent. We'll reply within one business day.";
 
-    // Pre-select payroll partner from ?payroll=adp or ?payroll=paychex (links from partner pages)
     var payrollParam = (new URLSearchParams(window.location.search).get("payroll") || "").toLowerCase();
     var payrollSelect = form.querySelector('[name="payrollPartner"]');
     if (payrollSelect && payrollParam) {
-      var payrollMap = {
-        adp: "ADP",
-        paychex: "Paychex"
-      };
+      var payrollMap = { adp: "ADP", paychex: "Paychex" };
       var payrollValue = payrollMap[payrollParam];
-      if (payrollValue) {
-        Array.prototype.forEach.call(payrollSelect.options, function (opt) {
-          if (opt.value === payrollValue) payrollSelect.value = payrollValue;
-        });
-      }
+      if (payrollValue) payrollSelect.value = payrollValue;
     }
 
-    // Visual feedback for service checkboxes
     form.querySelectorAll(".form__check input[type=checkbox]").forEach(function (cb) {
       var wrap = cb.closest(".form__check");
       cb.addEventListener("change", function () {
@@ -146,19 +148,18 @@
       }
 
       var data = new FormData(form);
-      var first = (data.get("firstName") || "").toString().trim();
-      var last = (data.get("lastName") || "").toString().trim();
+      var name = getSubmitterName(data);
       var email = (data.get("email") || "").toString().trim();
-      var phone = (data.get("phone") || "").toString().trim();
-      var message = (data.get("message") || "").toString().trim();
-      var services = data.getAll("services").join(", ");
-
       var missing = [];
-      if (!first) missing.push("First Name");
-      if (!last) missing.push("Last Name");
-      if (!email) missing.push("Email");
-      if (!message) missing.push("Message");
 
+      form.querySelectorAll("[required]").forEach(function (field) {
+        if (field.type === "checkbox" || field.type === "radio") return;
+        var val = (field.value || "").toString().trim();
+        var label = field.labels && field.labels[0] ? field.labels[0].textContent.replace("*", "").trim() : field.name;
+        if (!val) missing.push(label);
+      });
+
+      if (!email) missing.push("Email");
       var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       if (email && !emailValid) missing.push("a valid Email");
 
@@ -171,62 +172,61 @@
       }
       if (errorBox) errorBox.classList.remove("is-visible");
 
-      var subject = "New Project Inquiry from " + first + " " + last;
       var submitEndpoint = getFormEndpoint(form);
-
-      if (submitEndpoint) {
-        var submitBtn = form.querySelector('[type="submit"]');
-        var fd = new FormData(form);
-        fd.set("_subject", subject);
-        fd.set("_replyto", email);
-
-        if (submitBtn) submitBtn.disabled = true;
-
-        fetch(submitEndpoint, {
-          method: "POST",
-          body: fd,
-          headers: { Accept: "application/json" }
-        })
-          .then(function (res) {
-            if (res.ok) {
-              form.reset();
-              form.querySelectorAll(".form__check").forEach(function (w) {
-                w.classList.remove("is-checked");
-              });
-              if (successBox) {
-                successBox.textContent =
-                  "Thank you — your brief was sent. We'll reply within one business day.";
-                successBox.hidden = false;
-              }
-              return;
-            }
-            return res.json().then(function (body) {
-              var msg = "Submission failed. Please try again or email Services@IntegrateXpress.com.";
-              if (body && typeof body.error === "string") msg = body.error;
-              throw new Error(msg);
-            });
-          })
-          .catch(function (err) {
-            if (errorBox) {
-              errorBox.textContent =
-                (err && err.message) ||
-                "Something went wrong sending your brief. Please try again or email Services@IntegrateXpress.com.";
-              errorBox.classList.add("is-visible");
-            }
-          })
-          .finally(function () {
-            if (submitBtn) submitBtn.disabled = false;
-          });
+      if (!submitEndpoint) {
+        if (errorBox) {
+          errorBox.textContent = "Form is not configured. Please email Services@IntegrateXpress.com directly.";
+          errorBox.classList.add("is-visible");
+        }
         return;
       }
 
-      if (errorBox) {
-        errorBox.textContent =
-          "Form is not configured. Please email Services@IntegrateXpress.com directly.";
-        errorBox.classList.add("is-visible");
-      }
+      var submitBtn = form.querySelector('[type="submit"]');
+      var fd = new FormData(form);
+      fd.set("category", category);
+      fd.set("_subject", "[" + category + "] " + (name || "New inquiry"));
+      fd.set("_replyto", email);
+
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(submitEndpoint, {
+        method: "POST",
+        body: fd,
+        headers: { Accept: "application/json" }
+      })
+        .then(function (res) {
+          if (res.ok) {
+            form.reset();
+            form.querySelectorAll(".form__check").forEach(function (w) {
+              w.classList.remove("is-checked");
+            });
+            if (successBox) {
+              successBox.textContent = successMsg;
+              successBox.hidden = false;
+            }
+            return;
+          }
+          return res.json().then(function (body) {
+            var msg = "Submission failed. Please try again or email Services@IntegrateXpress.com.";
+            if (body && typeof body.error === "string") msg = body.error;
+            throw new Error(msg);
+          });
+        })
+        .catch(function (err) {
+          if (errorBox) {
+            errorBox.textContent =
+              (err && err.message) ||
+              "Something went wrong. Please try again or email Services@IntegrateXpress.com.";
+            errorBox.classList.add("is-visible");
+          }
+        })
+        .finally(function () {
+          if (submitBtn) submitBtn.disabled = false;
+        });
     });
   }
+
+  document.querySelectorAll("[data-ix-form], [data-getstarted-form]").forEach(initIxForm);
 
   // ----- Accreditation detail dialog -----
   var accredDialog = document.getElementById("accred-dialog");

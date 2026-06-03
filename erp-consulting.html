@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=7" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=12" />
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -117,6 +117,49 @@
       </div>
     </section>
 
+    <section class="section section--divider" id="erp-form">
+      <div class="container form-page-wrap">
+        <form class="form form--erp reveal" data-ix-form data-form-category="ERP &amp; systems consulting" data-form-endpoint="https://formspree.io/f/meewjzoz" action="https://formspree.io/f/meewjzoz" method="POST" novalidate>
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="visually-hidden" aria-hidden="true" />
+          <p class="form__badge">ERP &amp; systems consulting</p>
+          <div class="form__success" data-form-success hidden aria-live="polite"></div>
+          <div class="form__error" data-form-error role="alert"></div>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="erp-first">First name <span class="req">*</span></label>
+              <input id="erp-first" name="firstName" type="text" required placeholder="Jane" />
+            </div>
+            <div class="form__field">
+              <label for="erp-last">Last name <span class="req">*</span></label>
+              <input id="erp-last" name="lastName" type="text" required placeholder="Doe" />
+            </div>
+          </div>
+          <div class="form__row">
+            <div class="form__field">
+              <label for="erp-email">Email <span class="req">*</span></label>
+              <input id="erp-email" name="email" type="email" required placeholder="jane@company.com" />
+            </div>
+            <div class="form__field">
+              <label for="erp-phone">Phone</label>
+              <input id="erp-phone" name="phone" type="tel" placeholder="(555) 555-5555" />
+            </div>
+          </div>
+          <div class="form__field">
+            <label for="erp-systems">Current systems / ERP</label>
+            <input id="erp-systems" name="currentSystems" type="text" placeholder="e.g. QuickBooks, NetSuite, legacy ERP…" />
+          </div>
+          <div class="form__field">
+            <label for="erp-message">What do you need a consultant for? <span class="req">*</span></label>
+            <textarea id="erp-message" name="message" required placeholder="Selection, implementation, migration, adoption, vendor coordination…"></textarea>
+          </div>
+          <div class="form__submit">
+            <button type="submit" class="btn btn--primary btn--lg">Hire a consultant <span class="arrow">&#8599;</span></button>
+            <p class="form-hint">Systems &amp; data only — not field infrastructure or payroll.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+
     <section class="cta-band">
       <div class="container reveal">
         <p class="kicker kicker--plain">Systems only</p>
@@ -164,6 +207,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=7"></script>
+  <script src="assets/js/main.js?v=12"></script>
 </body>
 </html>
