@@ -6,7 +6,7 @@
  *   2. Publish the site and copy the full page URL.
  *   3. Paste it below (include https://). Leave empty to use the built-in form (mailto fallback).
  */
-window.INTEGRATEXPRESS_SQUARESPACE_FORM_URL = "";
+window.INTEGRATEXPRESS_SQUARESPACE_FORM_URL = "https://www.integratexpress.com/home-1";
 
 /**
  * Optional: Formspree / Getform endpoint for the built-in form (same fields as get-started.html).
