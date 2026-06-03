@@ -119,8 +119,8 @@
     var payrollSelect = form.querySelector('[name="payrollPartner"]');
     if (payrollSelect && payrollParam) {
       var payrollMap = {
-        adp: "ADP — payroll integration (ledger mapping, reporting, accounting)",
-        paychex: "Paychex — partner referral and payroll signup"
+        adp: "ADP",
+        paychex: "Paychex"
       };
       var payrollValue = payrollMap[payrollParam];
       if (payrollValue) {
