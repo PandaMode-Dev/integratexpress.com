@@ -1213,6 +1213,9 @@ p { margin: 0 0 1em; color: var(--text-2); }
   border-top: 1px solid var(--line);
 }
 .feature-row + .feature-row { border-top: 1px solid var(--line); }
+.feature-row--single {
+  grid-template-columns: 1fr;
+}
 .feature-row.is-flip > :first-child { order: 2; }
 @media (max-width: 900px) {
   .feature-row, .feature-row.is-flip { grid-template-columns: 1fr; gap: 32px; }
