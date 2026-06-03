@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | IntegrateXpress</title>
-  <meta name="description" content="Two separate practices: infrastructure and field services, and ERP systems consulting — clearly scoped for your project." />
+  <meta name="description" content="Four separate services: Infrastructure, ERP consulting, ADP integration, and Paychex integration." />
   <link rel="icon" type="image/png" href="IntegrateXpress%20Logo%20(2).png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
@@ -25,18 +25,10 @@
           <span></span><span></span><span></span>
         </button>
         <ul class="nav__links">
-          <li class="nav__item nav__item--dropdown">
-            <button type="button" class="nav__dropdown-btn" id="nav-services-btn" data-nav-dropdown-toggle aria-expanded="false" aria-haspopup="true" aria-controls="nav-services-menu">
-              Services <span class="nav__dropdown-chevron" aria-hidden="true"></span>
-            </button>
-            <ul class="nav__sub" id="nav-services-menu" role="menu" aria-labelledby="nav-services-btn">
-              <li role="none"><a href="infrastructure-integration.html" role="menuitem">Infrastructure &amp; field services</a></li>
-              <li role="none"><a href="erp-consulting.html" role="menuitem">ERP &amp; systems consulting</a></li>
-              <li role="none"><a href="services.html" role="menuitem">Services overview</a></li>
-              <li role="none"><a href="adp-integration.html" role="menuitem">ADP integration</a></li>
-              <li role="none"><a href="https://paychex.my.salesforce-sites.com/PaychexReferral?CustomerForm=true&amp;PartnerId=404690" target="_blank" rel="noopener noreferrer" role="menuitem">Paychex integration<span class="nav__external-hint" aria-hidden="true"> ↗</span><span class="visually-hidden"> Opens in a new tab.</span></a></li>
-            </ul>
-          </li>
+          <li><a href="infrastructure-integration.html">Infrastructure</a></li>
+          <li><a href="erp-consulting.html">ERP</a></li>
+          <li><a href="adp-integration.html">ADP</a></li>
+          <li><a href="paychex-integration.html">Paychex</a></li>
           <li><a href="team.html">Meet the team</a></li>
           <li><a href="accreditation.html">Accreditation</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
@@ -54,80 +46,39 @@
       <div class="container">
         <div class="page-hero__inner reveal">
           <p class="kicker">[ Services ] &mdash; Overview</p>
-          <h1>Two practices. <br /><em>Clearly separated.</em></h1>
-          <p>Infrastructure and field work never mixed with ERP consulting. Pick the practice that matches your project.</p>
+          <h1>Four services. <br /><em>Each on its own page.</em></h1>
+          <p>Infrastructure, ERP consulting, ADP, and Paychex are separate &mdash; choose the button for the service you need.</p>
         </div>
       </div>
     </section>
 
-    <section class="service-split">
+    <section class="services-hub section--tight">
       <div class="container">
-        <div class="service-split__grid reveal">
-          <article class="service-split__card service-split__card--infra">
-            <p class="kicker">Practice 01</p>
-            <h2>Infrastructure &amp; <em>field services</em></h2>
-            <p>Assessments, site surveys, cabling, closets, cameras, network gear, relocations, and fix services on site.</p>
-            <ul class="bullets bullets--compact">
-              <li>Infrastructure assessments</li>
-              <li>Security cameras &amp; CCTV</li>
-              <li>Telecom room build-outs</li>
-              <li>Wireless &amp; structured cabling</li>
-            </ul>
-            <a href="infrastructure-integration.html" class="btn btn--primary">Infrastructure services &rarr;</a>
-          </article>
-          <article class="service-split__card service-split__card--erp">
-            <p class="kicker">Practice 02</p>
-            <h2>ERP &amp; <em>systems consulting</em></h2>
-            <p>Extension of your existing systems. Hire a consultant for strategy, implementation, migration, and adoption.</p>
-            <ul class="bullets bullets--compact">
-              <li>ERP integration &amp; implementation</li>
-              <li>Change management &amp; training</li>
-              <li>Vendor coordination</li>
-              <li>ADP / payroll alignment</li>
-            </ul>
-            <a href="erp-consulting.html" class="btn btn--primary">ERP consulting &rarr;</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="infrastructure" class="container">
-      <div class="feature-row reveal">
-        <div>
-          <p class="kicker">[ 01 ] Infrastructure</p>
-          <h2>Built for the <em>building.</em></h2>
-          <p>Physical integration, security systems, and network infrastructure &mdash; scoped and delivered by our field team.</p>
-          <div class="chips">
-            <span class="chip">Site survey</span>
-            <span class="chip">Closet build-outs</span>
-            <span class="chip">Security cameras</span>
-            <span class="chip">Fix services</span>
-            <span class="chip">Network gear</span>
-          </div>
-          <a href="infrastructure-integration.html#daniel-does" class="btn btn--ghost">What Daniel does &rarr;</a>
-        </div>
-        <div class="feature-row__art">
-          <img src="SoftwareDevelopment.avif" alt="Infrastructure and network integration" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <section id="erp" class="container">
-      <div class="feature-row is-flip reveal">
-        <div>
-          <p class="kicker">[ 02 ] Systems consulting</p>
-          <h2>Extension of <em>your stack.</em></h2>
-          <p>Not bundled with infrastructure. Consultant-led ERP and systems work when your team needs an expert embedded in the project.</p>
-          <div class="chips">
-            <span class="chip">Implementation</span>
-            <span class="chip">Data migration</span>
-            <span class="chip">Change management</span>
-            <span class="chip">Training</span>
-          </div>
-          <a href="get-started.html" class="btn btn--primary">Hire a consultant <span class="arrow">&#8599;</span></a>
-        </div>
-        <div class="feature-row__art">
-          <img src="business%20consulting.png" alt="Systems and ERP consulting" loading="lazy" />
+        <div class="services-hub__grid reveal">
+          <a href="infrastructure-integration.html" class="services-hub__card">
+            <span class="services-hub__tag">Practice 01</span>
+            <h3>Infrastructure &amp; field</h3>
+            <p>Assessments, site surveys, cabling, closets, cameras, network gear, relocations, and fix services.</p>
+            <span class="services-hub__cta">Open infrastructure page &rarr;</span>
+          </a>
+          <a href="erp-consulting.html" class="services-hub__card">
+            <span class="services-hub__tag">Practice 02</span>
+            <h3>ERP &amp; systems</h3>
+            <p>Consultant-led ERP work as an extension of your systems &mdash; not bundled with field infrastructure.</p>
+            <span class="services-hub__cta">Open ERP page &rarr;</span>
+          </a>
+          <a href="adp-integration.html" class="services-hub__card services-hub__card--partner">
+            <span class="services-hub__tag">Payroll partner</span>
+            <h3>ADP integration</h3>
+            <p>Ledger mapping, reporting, and accounting services through our ADP partnership.</p>
+            <span class="services-hub__cta">Open ADP page &rarr;</span>
+          </a>
+          <a href="paychex-integration.html" class="services-hub__card services-hub__card--partner">
+            <span class="services-hub__tag">Payroll partner</span>
+            <h3>Paychex integration</h3>
+            <p>Official Paychex referral and signup &mdash; dedicated page with portal button.</p>
+            <span class="services-hub__cta">Open Paychex page &rarr;</span>
+          </a>
         </div>
       </div>
     </section>
@@ -155,9 +106,9 @@
     <section class="cta-band">
       <div class="container reveal">
         <p class="kicker kicker--plain">Ready when you are</p>
-        <h2>Start with the <em>right practice.</em></h2>
-        <p>Tell us if you need field infrastructure or systems consulting &mdash; we&rsquo;ll take it from there.</p>
-        <a href="get-started.html" class="btn btn--primary btn--lg">Start your project <span class="arrow">&#8599;</span></a>
+        <h2>Not sure which <em>service?</em></h2>
+        <p>Call us and we&rsquo;ll point you to the right page.</p>
+        <a href="contact.html" class="btn btn--primary btn--lg">Contact us <span class="arrow">&#8599;</span></a>
       </div>
     </section>
   </main>
@@ -173,11 +124,11 @@
           <p class="footer__tagline">Infrastructure, security, and systems consulting — built for your facility.</p>
         </div>
         <div class="footer__col">
-          <h4>Explore</h4>
+          <h4>Services</h4>
           <a href="infrastructure-integration.html">Infrastructure</a>
           <a href="erp-consulting.html">ERP consulting</a>
-          <a href="accreditation.html">Accreditation</a>
-          <a href="testimonials.html">Testimonials</a>
+          <a href="adp-integration.html">ADP integration</a>
+          <a href="paychex-integration.html">Paychex integration</a>
         </div>
         <div class="footer__col">
           <h4>Company</h4>
@@ -199,6 +150,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=4"></script>
 </body>
 </html>
