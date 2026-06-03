@@ -1953,6 +1953,12 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
   align-items: start;
 }
 @media (max-width: 900px) { .assess-showcase { grid-template-columns: 1fr; } }
+.assess-showcase--copy-only {
+  grid-template-columns: 1fr;
+}
+.assess-showcase--copy-only .assess-showcase__copy {
+  max-width: 720px;
+}
 .assess-showcase__gallery {
   display: grid;
   grid-template-columns: 1fr;
