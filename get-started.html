@@ -106,6 +106,18 @@
             </div>
 
             <div class="form__field">
+              <label for="payrollPartner">Payroll &amp; HR interest</label>
+              <select id="payrollPartner" name="payrollPartner">
+                <option value="">Not applicable / other services only</option>
+                <option value="ADP — payroll integration (ledger mapping, reporting, accounting)">ADP — payroll &amp; accounting integration</option>
+                <option value="Paychex — partner referral and payroll signup">Paychex — referral &amp; payroll signup</option>
+                <option value="Comparing ADP and Paychex">Comparing ADP and Paychex</option>
+                <option value="Other payroll or HR platform">Other payroll or HR platform</option>
+              </select>
+              <p class="form__help">ADP and Paychex are payroll &amp; HR providers. Choose one if you need help with payroll, not infrastructure or ERP.</p>
+            </div>
+
+            <div class="form__field">
               <label>Services of interest</label>
               <div class="form__checks">
                 <label class="form__check"><input type="checkbox" name="services" value="ERP Integration &amp; Implementation" /> ERP Integration</label>
@@ -171,6 +183,6 @@
   </footer>
 
   <script src="assets/js/site-config.js?v=8"></script>
-  <script src="assets/js/main.js?v=8"></script>
+  <script src="assets/js/main.js?v=9"></script>
 </body>
 </html>

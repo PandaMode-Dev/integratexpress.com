@@ -114,6 +114,22 @@
     var errorBox = form.querySelector("[data-form-error]");
     var successBox = form.querySelector("[data-form-success]");
 
+    // Pre-select payroll partner from ?payroll=adp or ?payroll=paychex (links from partner pages)
+    var payrollParam = (new URLSearchParams(window.location.search).get("payroll") || "").toLowerCase();
+    var payrollSelect = form.querySelector('[name="payrollPartner"]');
+    if (payrollSelect && payrollParam) {
+      var payrollMap = {
+        adp: "ADP — payroll integration (ledger mapping, reporting, accounting)",
+        paychex: "Paychex — partner referral and payroll signup"
+      };
+      var payrollValue = payrollMap[payrollParam];
+      if (payrollValue) {
+        Array.prototype.forEach.call(payrollSelect.options, function (opt) {
+          if (opt.value === payrollValue) payrollSelect.value = payrollValue;
+        });
+      }
+    }
+
     // Visual feedback for service checkboxes
     form.querySelectorAll(".form__check input[type=checkbox]").forEach(function (cb) {
       var wrap = cb.closest(".form__check");
