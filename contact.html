@@ -30,11 +30,14 @@
               Services <span class="nav__dropdown-chevron" aria-hidden="true"></span>
             </button>
             <ul class="nav__sub" id="nav-services-menu" role="menu" aria-labelledby="nav-services-btn">
-              <li role="none"><a href="infrastructure-integration.html" role="menuitem">Infrastructure integration</a></li>
+              <li role="none"><a href="infrastructure-integration.html" role="menuitem">Infrastructure &amp; field services</a></li>
+              <li role="none"><a href="erp-consulting.html" role="menuitem">ERP &amp; systems consulting</a></li>
+              <li role="none"><a href="services.html" role="menuitem">Services overview</a></li>
               <li role="none"><a href="adp-integration.html" role="menuitem">ADP integration</a></li>
               <li role="none"><a href="https://paychex.my.salesforce-sites.com/PaychexReferral?CustomerForm=true&amp;PartnerId=404690" target="_blank" rel="noopener noreferrer" role="menuitem">Paychex integration<span class="nav__external-hint" aria-hidden="true"> ↗</span><span class="visually-hidden"> Opens in a new tab.</span></a></li>
             </ul>
           </li>
+          <li><a href="team.html">Meet the team</a></li>
           <li><a href="accreditation.html">Accreditation</a></li>
           <li><a href="testimonials.html">Testimonials</a></li>
           <li><a href="faq.html">FAQ</a></li>
@@ -102,42 +105,45 @@
       </div>
     </section>
 
-    <section class="section section--tight section--divider" aria-labelledby="contact-map-heading">
+    <section class="section section--tight section--divider" id="service-locations" aria-labelledby="contact-map-heading">
       <div class="container">
         <div class="contact-map-block reveal">
-          <p class="kicker">[ Location ]</p>
-          <h2 id="contact-map-heading">Find us on the map</h2>
-          <p class="contact-map-block__intro"><a href="https://www.google.com/maps?sll=43.156578,-77.608846&amp;q=43.15657789999999,-77.6088465&amp;z=15" target="_blank" rel="noopener noreferrer" data-map-external-link>Open in Google Maps<span class="nav__external-hint" aria-hidden="true"> ↗</span><span class="visually-hidden"> Opens in a new tab.</span></a> for directions, Street View, and sharing the pin.</p>
-          <div class="contact-map-locations" role="group" aria-label="Service locations in New York">
-            <button type="button" class="contact-map-star is-active" data-map-location data-lat="43.156578" data-lng="-77.608846" data-zoom="13" data-label="Rochester" aria-pressed="true">
-              <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
-              <span class="contact-map-star__label">Rochester</span>
-            </button>
-            <button type="button" class="contact-map-star" data-map-location data-lat="43.0962" data-lng="-79.0377" data-zoom="13" data-label="Niagara Falls" aria-pressed="false">
-              <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
-              <span class="contact-map-star__label">Niagara Falls</span>
-            </button>
-            <button type="button" class="contact-map-star" data-map-location data-lat="42.8864" data-lng="-78.8784" data-zoom="13" data-label="Buffalo" aria-pressed="false">
-              <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
-              <span class="contact-map-star__label">Buffalo</span>
-            </button>
-            <button type="button" class="contact-map-star" data-map-location data-lat="43.0481" data-lng="-76.1474" data-zoom="13" data-label="Syracuse" aria-pressed="false">
-              <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
-              <span class="contact-map-star__label">Syracuse</span>
-            </button>
-            <button type="button" class="contact-map-star" data-map-location data-lat="42.6526" data-lng="-73.7562" data-zoom="13" data-label="Capital of New York" aria-pressed="false">
-              <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
-              <span class="contact-map-star__label">Capital of New York</span>
-            </button>
-          </div>
-          <div class="contact-map">
-            <iframe
-              title="IntegrateXpress location on Google Maps"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              data-map-iframe
-              src="https://www.google.com/maps?q=43.156578,-77.608846&amp;z=13&amp;output=embed"
-            ></iframe>
+          <p class="kicker">[ Locations ]</p>
+          <h2 id="contact-map-heading">Key places we serve</h2>
+          <p class="contact-map-block__intro">Tap a <strong>★</strong> to jump the map to that service area. <a href="https://www.google.com/maps?sll=43.156578,-77.608846&amp;q=43.15657789999999,-77.6088465&amp;z=15" target="_blank" rel="noopener noreferrer" data-map-external-link>Open in Google Maps<span class="nav__external-hint" aria-hidden="true"> ↗</span><span class="visually-hidden"> Opens in a new tab.</span></a> for directions.</p>
+
+          <div class="contact-map-wrap">
+            <div class="contact-map-locations contact-map-locations--overlay" role="group" aria-label="Select a service location on the map">
+              <button type="button" class="contact-map-star is-active" data-map-location data-lat="43.156578" data-lng="-77.608846" data-zoom="13" data-label="Rochester" aria-pressed="true">
+                <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
+                <span class="contact-map-star__label">Rochester</span>
+              </button>
+              <button type="button" class="contact-map-star" data-map-location data-lat="43.0962" data-lng="-79.0377" data-zoom="13" data-label="Niagara Falls" aria-pressed="false">
+                <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
+                <span class="contact-map-star__label">Niagara Falls</span>
+              </button>
+              <button type="button" class="contact-map-star" data-map-location data-lat="42.8864" data-lng="-78.8784" data-zoom="13" data-label="Buffalo" aria-pressed="false">
+                <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
+                <span class="contact-map-star__label">Buffalo</span>
+              </button>
+              <button type="button" class="contact-map-star" data-map-location data-lat="43.0481" data-lng="-76.1474" data-zoom="13" data-label="Syracuse" aria-pressed="false">
+                <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
+                <span class="contact-map-star__label">Syracuse</span>
+              </button>
+              <button type="button" class="contact-map-star" data-map-location data-lat="42.6526" data-lng="-73.7562" data-zoom="13" data-label="Capital of New York" aria-pressed="false">
+                <span class="contact-map-star__icon" aria-hidden="true">&#9733;</span>
+                <span class="contact-map-star__label">Capital of New York</span>
+              </button>
+            </div>
+            <div class="contact-map">
+              <iframe
+                title="IntegrateXpress service locations on Google Maps"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                data-map-iframe
+                src="https://www.google.com/maps?q=43.156578,-77.608846&amp;z=13&amp;output=embed"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>
@@ -162,20 +168,19 @@
             <img src="IntegrateXpress%20Logo%20(2).png" alt="" />
             <strong>IntegrateXpress</strong>
           </div>
-          <p class="footer__tagline">Where your systems, data, and strategy come together to drive real growth.</p>
+          <p class="footer__tagline">Infrastructure, security, and systems consulting — built for your facility.</p>
         </div>
         <div class="footer__col">
           <h4>Explore</h4>
-          <a href="services.html">Services</a>
-          <a href="infrastructure-integration.html">Infrastructure integration</a>
-          <a href="adp-integration.html">ADP integration</a>
+          <a href="infrastructure-integration.html">Infrastructure</a>
+          <a href="erp-consulting.html">ERP consulting</a>
+          <a href="services.html">Services overview</a>
           <a href="accreditation.html">Accreditation</a>
-          <a href="testimonials.html">Testimonials</a>
         </div>
         <div class="footer__col">
           <h4>Company</h4>
+          <a href="team.html">Meet the team</a>
           <a href="faq.html">FAQ</a>
-          <a href="site-survey.html">Site Survey</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer__col">

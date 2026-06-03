@@ -6,6 +6,8 @@
  *   2. Publish the site and copy the full page URL.
  *   3. Paste it below (include https://). Leave empty to use the built-in form (mailto fallback).
  */
+// Public form page on Squarespace. If www DNS points to GitHub, switch this to your
+// Squarespace built-in URL (Settings → Domains), e.g. https://YOURSITE.squarespace.com/home-1
 window.INTEGRATEXPRESS_SQUARESPACE_FORM_URL = "https://www.integratexpress.com/home-1";
 
 /**
