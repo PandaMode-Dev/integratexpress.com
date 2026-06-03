@@ -95,26 +95,24 @@
     });
   }, 800);
 
-  // ----- Get Started form -----
-  // Remote POST when configured (Formspree, Getform, Basin, Squarespace-connected Zapier webhooks, etc.):
-  //   • Add data-form-endpoint="https://…" on the form, or
-  //   • Set window.INTEGRATEXPRESS_FORM_ENDPOINT in Squarespace: Settings → Advanced → Code Injection (Header).
-  // If neither is set, valid submissions fall back to mailto (same as before).
+  // ----- Get Started form → Formspree (no mailto) -----
+  function getFormEndpoint(formEl) {
+    var fromAttr = (formEl.getAttribute("data-form-endpoint") || "").trim();
+    if (fromAttr) return fromAttr;
+    var fromConfig =
+      typeof window !== "undefined" && window.INTEGRATEXPRESS_FORM_ENDPOINT
+        ? String(window.INTEGRATEXPRESS_FORM_ENDPOINT).trim()
+        : "";
+    if (fromConfig) return fromConfig;
+    var action = (formEl.getAttribute("action") || "").trim();
+    if (action.indexOf("formspree.io") !== -1) return action;
+    return "";
+  }
+
   var form = document.querySelector("[data-getstarted-form]");
   if (form) {
     var errorBox = form.querySelector("[data-form-error]");
     var successBox = form.querySelector("[data-form-success]");
-    var hintEl = form.querySelector(".form-hint");
-    var endpoint =
-      (form.getAttribute("data-form-endpoint") || "").trim() ||
-      (typeof window !== "undefined" && window.INTEGRATEXPRESS_FORM_ENDPOINT
-        ? String(window.INTEGRATEXPRESS_FORM_ENDPOINT).trim()
-        : "");
-
-    if (hintEl && endpoint) {
-      hintEl.textContent =
-        "Submitted securely. We typically reply within one business day.";
-    }
 
     // Visual feedback for service checkboxes
     form.querySelectorAll(".form__check input[type=checkbox]").forEach(function (cb) {
@@ -158,8 +156,9 @@
       if (errorBox) errorBox.classList.remove("is-visible");
 
       var subject = "New Project Inquiry from " + first + " " + last;
+      var submitEndpoint = getFormEndpoint(form);
 
-      if (endpoint) {
+      if (submitEndpoint) {
         var submitBtn = form.querySelector('[type="submit"]');
         var fd = new FormData(form);
         fd.set("_subject", subject);
@@ -167,7 +166,7 @@
 
         if (submitBtn) submitBtn.disabled = true;
 
-        fetch(endpoint, {
+        fetch(submitEndpoint, {
           method: "POST",
           body: fd,
           headers: { Accept: "application/json" }
@@ -205,20 +204,11 @@
         return;
       }
 
-      var to = "Services@IntegrateXpress.com";
-      var bodyLines = [
-        "Name: " + first + " " + last,
-        "Email: " + email,
-        "Phone: " + (phone || "(not provided)"),
-        "Services of interest: " + (services || "(not specified)"),
-        "",
-        "Message:",
-        message
-      ];
-      var mailto = "mailto:" + encodeURIComponent(to) +
-        "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(bodyLines.join("\n"));
-      window.location.href = mailto;
+      if (errorBox) {
+        errorBox.textContent =
+          "Form is not configured. Please email Services@IntegrateXpress.com directly.";
+        errorBox.classList.add("is-visible");
+      }
     });
   }
 
