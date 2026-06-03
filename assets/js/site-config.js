@@ -6,13 +6,14 @@
  *   2. Publish the site and copy the full page URL.
  *   3. Paste it below (include https://). Leave empty to use the built-in form (mailto fallback).
  */
-// Public form page on Squarespace. If www DNS points to GitHub, switch this to your
-// Squarespace built-in URL (Settings → Domains), e.g. https://YOURSITE.squarespace.com/home-1
-window.INTEGRATEXPRESS_SQUARESPACE_FORM_URL = "https://www.integratexpress.com/home-1";
+// Squarespace embed — only works if this URL is a real Squarespace form page (NOT your GitHub site).
+// Since www.integratexpress.com points to GitHub Pages, leave empty and use Formspree below instead.
+window.INTEGRATEXPRESS_SQUARESPACE_FORM_URL = "";
 
 /**
- * Optional: Formspree / Getform endpoint for the built-in form (same fields as get-started.html).
- * Used only when SQUARESPACE_FORM_URL is empty. Example: "https://formspree.io/f/xxxx"
+ * Formspree (recommended): sign up at formspree.io → New form → copy endpoint → paste here.
+ * Submissions email Services@IntegrateXpress.com automatically (no mailto popup).
+ * Example: "https://formspree.io/f/abcdefgh"
  */
 window.INTEGRATEXPRESS_FORM_ENDPOINT = "";
 
