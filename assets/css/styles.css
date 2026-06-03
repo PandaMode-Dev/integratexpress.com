@@ -1888,6 +1888,12 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 }
 .practice-feature--flip .practice-feature__media { order: 2; }
 .practice-feature--flip .practice-feature__body { order: 1; }
+.practice-feature--text-only {
+  grid-template-columns: 1fr;
+}
+.practice-feature--text-only .practice-feature__body {
+  max-width: 720px;
+}
 @media (max-width: 900px) {
   .practice-feature, .practice-feature--flip { grid-template-columns: 1fr; }
   .practice-feature--flip .practice-feature__media,
@@ -1949,8 +1955,9 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 @media (max-width: 900px) { .assess-showcase { grid-template-columns: 1fr; } }
 .assess-showcase__gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 14px;
+  max-width: 520px;
 }
 .assess-photo {
   margin: 0;
