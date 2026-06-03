@@ -11,11 +11,9 @@
 window.INTEGRATEXPRESS_SQUARESPACE_FORM_URL = "";
 
 /**
- * Formspree (recommended): sign up at formspree.io → New form → copy endpoint → paste here.
- * Submissions email Services@IntegrateXpress.com automatically (no mailto popup).
- * Example: "https://formspree.io/f/abcdefgh"
+ * Formspree — notifications go to the inbox you verified in Formspree (not necessarily Services@).
  */
-window.INTEGRATEXPRESS_FORM_ENDPOINT = "";
+window.INTEGRATEXPRESS_FORM_ENDPOINT = "https://formspree.io/f/meewjzoz";
 
 (function () {
   "use strict";
