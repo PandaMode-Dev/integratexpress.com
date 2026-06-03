@@ -1,0 +1,18 @@
+# Not needed for the live site
+ADP/
+Paychex/
+Paychex/*.csv
+Paychex/*.xlsx
+Paychex/*.docx
+partnered_companies_list.xlsx
+*.pptx
+ACT Rochester RFP- Final.pdf
+Daniel.jpg
+Gonzalez-Kristy-Content.jpg
+kristy-gonzalez_008.jpg
+BBB-seal-horizontal-large.jpg
+CCA Logo.png
+PEO 9.10.24.png
+SBC-WOE.jpg
+.DS_Store
+Thumbs.db
