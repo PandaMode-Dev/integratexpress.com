@@ -952,9 +952,7 @@ p { margin: 0 0 1em; color: var(--text-2); }
 }
 .accred__art {
   height: 180px;
-  background:
-    radial-gradient(120% 80% at 30% 0%, rgba(70, 161, 106, 0.35), transparent 65%),
-    linear-gradient(135deg, #143a26 0%, #0e2c1c 100%);
+  background: var(--surface-2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -967,7 +965,8 @@ p { margin: 0 0 1em; color: var(--text-2); }
   max-width: 100%;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.4));
+  mix-blend-mode: multiply;
+  filter: brightness(1.12) contrast(1.05);
   pointer-events: none;
   display: block;
 }
