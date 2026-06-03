@@ -2300,3 +2300,85 @@ html.js .reveal.is-visible { opacity: 1; transform: none; }
 .site-survey-note a { font-weight: 700; color: var(--lime); }
 .site-survey-note a:hover { color: var(--lime-bright); }
 .contact-muted-link { margin-top: 14px; }
+
+/* Assessment gallery grid */
+.assess-showcase__gallery--grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  max-width: none;
+}
+@media (max-width: 900px) {
+  .assess-showcase__gallery--grid { grid-template-columns: 1fr; }
+}
+
+/* Daniel card media */
+.daniel-card__media {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: var(--r);
+  margin-bottom: 14px;
+  display: block;
+}
+.daniel-media {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+.daniel-media img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--r-lg);
+  border: 2px solid var(--line);
+}
+@media (max-width: 768px) {
+  .daniel-media { grid-template-columns: 1fr; }
+  .daniel-media img { height: 180px; }
+}
+
+/* Contact map city list */
+.contact-map-cities {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.contact-map-cities__link {
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.contact-map-cities__link:hover,
+.contact-map-cities__link:focus-visible {
+  border-color: var(--lime);
+  color: var(--text);
+  background: var(--lime-soft);
+}
+.contact-map-cities__link.is-active {
+  border-color: var(--lime);
+  background: var(--lime-soft);
+  color: var(--text);
+}
+@media (max-width: 640px) {
+  .contact-map-locations--overlay {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    margin-bottom: 12px;
+    border-radius: var(--r-lg);
+  }
+  .contact-map-wrap { display: flex; flex-direction: column; }
+}
