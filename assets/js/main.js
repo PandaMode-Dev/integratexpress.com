@@ -1,6 +1,8 @@
 (function () {
   "use strict";
 
+  document.documentElement.classList.add("js");
+
   // ----- Mobile nav toggle -----
   var nav = document.querySelector("[data-nav]");
   var toggle = document.querySelector("[data-nav-toggle]");
@@ -18,7 +20,7 @@
     });
   }
 
-  // ----- Services dropdown (mobile toggle + click-outside) -----
+  // ----- Services dropdown: click toggle on mobile only; hover on desktop -----
   function closeAllNavDropdowns() {
     document.querySelectorAll(".nav__item--dropdown.is-open").forEach(function (li) {
       li.classList.remove("is-open");
@@ -26,10 +28,13 @@
       if (btn) btn.setAttribute("aria-expanded", "false");
     });
   }
+  var navMq = window.matchMedia("(max-width: 1100px)");
   document.querySelectorAll("[data-nav-dropdown-toggle]").forEach(function (btn) {
     var item = btn.closest(".nav__item--dropdown");
     if (!item) return;
     btn.addEventListener("click", function (e) {
+      if (!navMq.matches) return;
+      e.preventDefault();
       e.stopPropagation();
       var willOpen = !item.classList.contains("is-open");
       closeAllNavDropdowns();
@@ -40,10 +45,14 @@
     });
   });
   document.addEventListener("click", function (ev) {
+    if (!navMq.matches) return;
     if (!(ev.target && ev.target.closest && ev.target.closest(".nav__item--dropdown"))) {
       closeAllNavDropdowns();
     }
   });
+  if (typeof navMq.addEventListener === "function") {
+    navMq.addEventListener("change", closeAllNavDropdowns);
+  }
 
   // ----- Active link highlighting -----
   var path = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
@@ -80,6 +89,11 @@
   } else {
     revealEls.forEach(function (el) { el.classList.add("is-visible"); });
   }
+  window.setTimeout(function () {
+    document.querySelectorAll(".reveal:not(.is-visible)").forEach(function (el) {
+      el.classList.add("is-visible");
+    });
+  }, 800);
 
   // ----- Get Started form -----
   // Remote POST when configured (Formspree, Getform, Basin, Squarespace-connected Zapier webhooks, etc.):

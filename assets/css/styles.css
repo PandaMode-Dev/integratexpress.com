@@ -1647,11 +1647,15 @@ p { margin: 0 0 1em; color: var(--text-2); }
    Reveal-on-scroll
    ============================================================ */
 .reveal {
+  opacity: 1;
+  transform: none;
+}
+html.js .reveal {
   opacity: 0;
   transform: translateY(14px);
   transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.2,1);
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+html.js .reveal.is-visible { opacity: 1; transform: none; }
 /* Homepage: show content immediately (no wait for scroll JS) */
 .home-static .reveal,
 .home-static .hero__copy,
